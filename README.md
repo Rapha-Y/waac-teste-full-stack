@@ -24,6 +24,48 @@ Um elemento só pode ser somando com um dos dois elementos mais próximos da pr�
 
 Escolha a linguagem de programação desejada e deixo nos saber a sua estratégia por trás da eleboração do problema.
 
+------
+
+Linguagem: JavaScript, especificada durante a entrevista.
+
+Entendendo o problema:
+
+Sabe-se que partindo do algarismo no topo do triângulo, há a opção de seguir o caminho esquerdo ou o caminho direito, para prosseguir com a soma. Destas opções, temos novamente uma opção de seguir para a esquerda ou direita, totalizando quatro caminhos. Isso se repete para todo algarismo exceto pelos da base, formando uma estrutura de árvore.
+
+![Example-based Tree](./readme-images/example-tree.png)
+Figura 1 - Árvore baseada no triângulo exemplo.
+
+Como a árvore é gerada a partir de um triângulo onde o topo apresenta apenas um algarismo, e o número de algarismos cresce em um, e somente um, a cada nível até a base, a árvore gerada será obrigatoriamente uma árvore binária cheia.
+
+Desta forma, para se resolver o problema, basta se fazer uma busca em profundidade por toda a árvore e ao se chegar em uma folha, verificar se o novo caminho obtido é maior do que o previamente maior, atualizando ele caso positivo.
+
+Melhorando a resolução:
+
+Nota-se que se, partindo das folhas, se soubermos que o valor máximo que pode ser obtido partindo-se de tal vértice da árvore, e o caminho pelo qual pode-se obter tal valor, o vértice do nível superior pode simplesmente comparar os máximos dos seus filhos para determinar qual o melhor caminho para se seguir. Dessa forma, o valor máximo que pode-se obter a partir do vértice, e o caminho pelo qual se pode obtê-lo, também são valores interessantes de se guardar no próprio vértice.
+
+Pontos importantes:
+
+Também é importante notar que nem sempre é necessário se chegar às folhas. Se o próximo caminho a ser analisado já for maior do que o máximo atual antes de se chegar em alguma folha desse novo caminho, a o valor máximo já pode ser atualizado. Isso não é válido caso números negativos sejam aceitos na entrada, entretanto.
+
+Ainda se preocupando com a entrada, pode ser necessário validar o que o usuário inseriu como entrada, haja vista que há a possibilidade dele ter utilizado valores não numéricos ou sintaxe errada nos colchetes e vírgulas. A entrada também pode ser longa demais, fazendo com que o problema não possa ser resolvido em um tempo bom.
+
+Uma última preocupação com o tipo de entrada é que apesar de ser numérica devido à natureza do problema, não foi indicado se esta pode conter números não-inteiros. Baseando-se no exemplo dado e adotando bom-senso, a resolução será feita com base em inteiros, mas esta é uma decisão arbitrária consequente da falta de especificações.
+
+Haja vista que dois, ou mais, caminhos distintos podem levar ao mesmo valor de soma, e este pode ser o máximo, pode ser necessário armazenar mais de um caminho que leva até a solução do problema.
+
+Preparo:
+
+Embora tenha muita experiência com árvores em C, não lidei com estruturas de dados em JavaScript, logo é necessário uma pesquisa de como implementar uma árvore na linguagem. Observando que é possível fazê-lo através do uso de classes, com orientação a objetos, isso também facilitando a concepção de um diagrama de classes, decidiu-se que tal método será utilizado para resolver o problema.
+
+Abordagem:
+
+Além de se resolver o problema, é necessário armazenar as listas fornecidas, as etapas do processamento com seus respectivos atributos, e uma forma de visualização. Nenhum destes itens parece afetar a resolução em si, portanto decidiu-se focar no problema inicial primeiro.
+
+Quanto a padrões de projeto, observou-se que para árvores, o padrão de composição é interessante. Logo, fez-se um diagrama de classes bem simples, sem atributos nem métodos, para poder se começar o desenvolvimento.
+
+![Class diagram](./readme-images/triangle-diagram.png)
+Figura 2 - Diagrama de classes
+
 ## Parâmetros de entrada e de saída
 
 Seu código receberá uma lista multidimensional como parametro. O triangulo do exemplo receberá, então: [[6],[3,5],[9,7,1],[4,6,8,4]].
