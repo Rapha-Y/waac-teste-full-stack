@@ -3,6 +3,13 @@
 Leia primeiro toda a proposta, faça sua estimativa de horas do planejamento a ser realizado, explique a estratégia a ser seguida de acordo com as tecnologias que escolheu e envie um e-mail com o título **[Fullstack] Teste do Triângulo - Estimativa** para beawsome@waac.com.br com o link do seu git.
 O primeiro commit é somente com o README.MD e esse arquivo será o seu documento técnico, portanto os processos de evolução precisam ser descritas e commitadas nesse arquivo. Tenha o hábito de commitar cada evolução ao longo da realização do projeto. Não suba o projeto no git apenas quando estiver pronto.
 
+------
+
+Estimativa de horas:
+
+Preparo - 4 horas (tempo gasto não cronometrado)
+Desenvolvimento da árvore - 2 horas (tempo gasto: 2:40 horas)
+
 ## O Desafio
 
 Dado um triângulo de números, encontre o total máximo de cima para baixo.
@@ -32,7 +39,7 @@ Entendendo o problema:
 
 Sabe-se que partindo do algarismo no topo do triângulo, há a opção de seguir o caminho esquerdo ou o caminho direito, para prosseguir com a soma. Destas opções, temos novamente uma opção de seguir para a esquerda ou direita, totalizando quatro caminhos. Isso se repete para todo algarismo exceto pelos da base, formando uma estrutura de árvore.
 
-![Example-based Tree](./readme-images/example-tree.png)
+![Example-based Tree](./readme-images/example-tree.png)  
 Figura 1 - Árvore baseada no triângulo exemplo.
 
 Como a árvore é gerada a partir de um triângulo onde o topo apresenta apenas um algarismo, e o número de algarismos cresce em um, e somente um, a cada nível até a base, a árvore gerada será obrigatoriamente uma árvore binária cheia.
@@ -41,7 +48,7 @@ Desta forma, para se resolver o problema, basta se fazer uma busca em profundida
 
 Melhorando a resolução:
 
-Nota-se que se, partindo das folhas, se soubermos que o valor máximo que pode ser obtido partindo-se de tal vértice da árvore, e o caminho pelo qual pode-se obter tal valor, o vértice do nível superior pode simplesmente comparar os máximos dos seus filhos para determinar qual o melhor caminho para se seguir. Dessa forma, o valor máximo que pode-se obter a partir do vértice, e o caminho pelo qual se pode obtê-lo, também são valores interessantes de se guardar no próprio vértice.
+Nota-se que se, partindo das folhas, se soubermos que o valor máximo que pode ser obtido partindo-se de tal vértice da árvore, e o caminho pelo qual pode-se obter tal valor, o vértice do nível superior pode simplesmente comparar os máximos dos seus filhos para determinar qual o melhor caminho para se seguir. Dessa forma, o valor máximo que pode-se obter a partir do vértice, e o caminho pelo qual se pode obtê-lo, também são valor    es interessantes de se guardar no próprio vértice.
 
 Pontos importantes:
 
@@ -61,10 +68,9 @@ Abordagem:
 
 Além de se resolver o problema, é necessário armazenar as listas fornecidas, as etapas do processamento com seus respectivos atributos, e uma forma de visualização. Nenhum destes itens parece afetar a resolução em si, portanto decidiu-se focar no problema inicial primeiro.
 
-Quanto a padrões de projeto, observou-se que para árvores, o padrão de composição é interessante. Logo, fez-se um diagrama de classes bem simples, sem atributos nem métodos, para poder se começar o desenvolvimento.
+<s>Quanto a padrões de projeto, observou-se que para árvores, o padrão de composição é interessante. Logo, fez-se um diagrama de classes bem simples, sem atributos nem métodos, para poder se começar o desenvolvimento.</s>
 
-![Class diagram](./readme-images/triangle-diagram.png)
-Figura 2 - Diagrama de classes
+A ideia de se usar o padrão de composição para a árvore foi momentaneamente abandonada. Após se pensar um pouco mais sobre o padrão, concluiu-se que além de se aumentar a complexidade da resolução, ele também pode não ser ideal para o problema.
 
 ## Parâmetros de entrada e de saída
 
