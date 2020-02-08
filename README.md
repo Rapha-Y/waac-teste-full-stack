@@ -9,7 +9,7 @@ Estimativa de horas:
 
 Preparo - 4 horas (tempo gasto não cronometrado)  
 Desenvolvimento da árvore - 2 horas (tempo gasto: 2:40 horas)  
-Desenvolvimento do banco de dados - 15 horas (tempo gasto até o momento: 5:00 horas)
+Desenvolvimento do banco de dados - 15 horas (tempo gasto até o momento: 9:15 horas)
 
 ## O Desafio
 
@@ -49,7 +49,7 @@ Desta forma, para se resolver o problema, basta se fazer uma busca em profundida
 
 Melhorando a resolução:
 
-Nota-se que se, partindo das folhas, se soubermos que o valor máximo que pode ser obtido partindo-se de tal vértice da árvore, e o caminho pelo qual pode-se obter tal valor, o vértice do nível superior pode simplesmente comparar os máximos dos seus filhos para determinar qual o melhor caminho para se seguir. Dessa forma, o valor máximo que pode-se obter a partir do vértice, e o caminho pelo qual se pode obtê-lo, também são valor    es interessantes de se guardar no próprio vértice.
+Nota-se que se, partindo das folhas, se soubermos que o valor máximo que pode ser obtido partindo-se de tal vértice da árvore, e o caminho pelo qual pode-se obter tal valor, o vértice do nível superior pode simplesmente comparar os máximos dos seus filhos para determinar qual o melhor caminho para se seguir. Dessa forma, o valor máximo que pode-se obter a partir do vértice, e o caminho pelo qual se pode obtê-lo, também são valores interessantes de se guardar no próprio vértice.
 
 Pontos importantes:
 
@@ -69,8 +69,6 @@ Abordagem:
 
 Além de se resolver o problema, é necessário armazenar as listas fornecidas, as etapas do processamento com seus respectivos atributos, e uma forma de visualização. Nenhum destes itens parece afetar a resolução em si, portanto decidiu-se focar no problema inicial primeiro.
 
-<s>Quanto a padrões de projeto, observou-se que para árvores, o padrão de composição é interessante. Logo, fez-se um diagrama de classes bem simples, sem atributos nem métodos, para poder se começar o desenvolvimento.</s>
-
 A ideia de se usar o padrão de composição para a árvore foi momentaneamente abandonada. Após se pensar um pouco mais sobre o padrão, concluiu-se que além de se aumentar a complexidade da resolução, ele também pode não ser ideal para o problema.
 
 Após finalizada o algoritmo por trás da resolução do problema, é necessário dar atenção à obtenção, ao armazenamento e a exibição dos dados. Como a obtenção e a exibição de dados ocorrem no front-end, e podem ser resolvidas através de HTML e JavaScript, tecnologias já conhecidas, decidiu-se dar atenção ao armazenamento primeiro.
@@ -79,10 +77,12 @@ O armazenamento de informações pode ser feito através de SQL, uma vez que ist
 
 Antes de se criar o banco de dados, é necessário definir que informações serão armazenadas no mesmo. Para cada triângulo fornecido como entrada, devem ser guardados os valores da lista e um ID. Porém também se pede que sejam armazenadas as etapas do processamento com o tempo de execução e o método utilizado para resolução da etapa. Tendo estas especificações e a resolução em mente, decidiu-se definir cada etapa como a criação e preenchimento de informações do vértice da árvore, e o método como sendo o tipo de escolha de caminho para se obter a soma máxima.
 
-Com isso em mente, foi projetado um diagrama entidade-relacionamento. A partir deste, serão obtidas as tabelas nas quais seram armazenados os dados, a forma como se criar o banco de dados ainda sendo estudada.
+Com isso em mente, foi projetado um diagrama entidade-relacionamento, o qual foi simplificado, uma vez que certas entidades foram identificadas como desnecessárias. A partir deste diagrama, o banco de dados foi criado, porém é necessário integrá-lo ao componentes do front end, até então não presentes. Portanto, para fins de teste de integração, deve ser projetada uma interface simples.
 
-![Example-based Tree](./readme-images/er-diagram.png)
-Figura 2 - Diagrama Entidade-Relacionamento.
+![Revised ER Diagram](./readme-images/er-diagram.png)  
+Figura 2 - Novo diagrama entidade-relacionamento.
+
+Para que a integração ocorra, estudou-se que ela só é possível com o uso de tecnologias como PHP, Ajax e Node, as quais devem ser avaliadas e estudadas, a fim de se concluir a etapa atual.
 
 ## Parâmetros de entrada e de saída
 

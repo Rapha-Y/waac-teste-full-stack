@@ -6,6 +6,8 @@ CREATE TABLE TriangleData(
     item_level int,
     item_position int,
     item_value int,
+    INDEX(item_level),
+    INDEX(item_position),
     PRIMARY KEY(item_level, item_position)
 );
 
@@ -13,6 +15,8 @@ CREATE TABLE PathData(
     path_outer_id int,
     path_inner_id int,
     direction varchar(5),
+    INDEX(path_outer_id),
+    INDEX(path_inner_id),
     PRIMARY KEY(path_outer_id, path_inner_id)
 );
 

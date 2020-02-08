@@ -5,9 +5,30 @@
         <title>
             Test
         </title>
+        <script type='text/javascript' src='./components/input-handler.js'></script>
     </head>
     <body>
-        For now I only exist so a JS code can be tested.
-        <script src='./components/binary-tree.js'></script>
+        <div class='creation-container'>
+            <div class='input-display'></div>
+            <div class='input-fields'>
+                Nome do Triângulo: 
+                <input 
+                    id='triangle-name' 
+                    placeholder='Triangulo Exemplo' 
+                    type='text'
+                    value=''
+                ><br>
+                Valores do Triângulo: 
+                <input 
+                    id='triangle-values'  
+                    placeholder='1,2,3,3,2,1' 
+                    type='text'
+                    value=''
+                ><br>
+                <button onclick='getInputValues();' type='button'>
+                    Adicionar ao banco de dados
+                </button>
+            </div>
+        </div>
     </body>
 </html>
