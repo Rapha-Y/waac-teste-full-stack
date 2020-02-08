@@ -7,8 +7,9 @@ O primeiro commit é somente com o README.MD e esse arquivo será o seu document
 
 Estimativa de horas:
 
-Preparo - 4 horas (tempo gasto não cronometrado)
-Desenvolvimento da árvore - 2 horas (tempo gasto: 2:40 horas)
+Preparo - 4 horas (tempo gasto não cronometrado)  
+Desenvolvimento da árvore - 2 horas (tempo gasto: 2:40 horas)  
+Desenvolvimento do banco de dados - 15 horas (tempo gasto até o momento: 5:00 horas)
 
 ## O Desafio
 
@@ -33,7 +34,7 @@ Escolha a linguagem de programação desejada e deixo nos saber a sua estratégi
 
 ------
 
-Linguagem: JavaScript, especificada durante a entrevista.
+Linguagem: JavaScript para a resolução do problema, especificada durante a entrevista.
 
 Entendendo o problema:
 
@@ -71,6 +72,17 @@ Além de se resolver o problema, é necessário armazenar as listas fornecidas, 
 <s>Quanto a padrões de projeto, observou-se que para árvores, o padrão de composição é interessante. Logo, fez-se um diagrama de classes bem simples, sem atributos nem métodos, para poder se começar o desenvolvimento.</s>
 
 A ideia de se usar o padrão de composição para a árvore foi momentaneamente abandonada. Após se pensar um pouco mais sobre o padrão, concluiu-se que além de se aumentar a complexidade da resolução, ele também pode não ser ideal para o problema.
+
+Após finalizada o algoritmo por trás da resolução do problema, é necessário dar atenção à obtenção, ao armazenamento e a exibição dos dados. Como a obtenção e a exibição de dados ocorrem no front-end, e podem ser resolvidas através de HTML e JavaScript, tecnologias já conhecidas, decidiu-se dar atenção ao armazenamento primeiro.
+
+O armazenamento de informações pode ser feito através de SQL, uma vez que isto permite a criação de um banco de dados, tecnologia também conhecida, mas é necessário adquirir conhecimentos de como integrar ela ao código em HTML/JavaScript.
+
+Antes de se criar o banco de dados, é necessário definir que informações serão armazenadas no mesmo. Para cada triângulo fornecido como entrada, devem ser guardados os valores da lista e um ID. Porém também se pede que sejam armazenadas as etapas do processamento com o tempo de execução e o método utilizado para resolução da etapa. Tendo estas especificações e a resolução em mente, decidiu-se definir cada etapa como a criação e preenchimento de informações do vértice da árvore, e o método como sendo o tipo de escolha de caminho para se obter a soma máxima.
+
+Com isso em mente, foi projetado um diagrama entidade-relacionamento. A partir deste, serão obtidas as tabelas nas quais seram armazenados os dados, a forma como se criar o banco de dados ainda sendo estudada.
+
+![Example-based Tree](./readme-images/er-diagram.png)
+Figura 2 - Diagrama Entidade-Relacionamento.
 
 ## Parâmetros de entrada e de saída
 
