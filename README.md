@@ -9,7 +9,8 @@ Estimativa de horas:
 
 Preparo - 4 horas (tempo gasto não cronometrado)  
 Desenvolvimento da árvore - 2 horas (tempo gasto: 2:40 horas)  
-Desenvolvimento do banco de dados - 15 horas (tempo gasto até o momento: 9:15 horas)
+Desenvolvimento do banco de dados - 15 horas 
+Nova estimativa para desenvolvimento do BD - 18 horas (tempo gasto até o momento: 13:15 horas)
 
 ## O Desafio
 
@@ -83,6 +84,8 @@ Com isso em mente, foi projetado um diagrama entidade-relacionamento, o qual foi
 Figura 2 - Novo diagrama entidade-relacionamento.
 
 Para que a integração ocorra, estudou-se que ela só é possível com o uso de tecnologias como PHP, Ajax e Node, as quais devem ser avaliadas e estudadas, a fim de se concluir a etapa atual.
+
+A integração do banco de dados e das variáveis através de PHP e Ajax não retornou resultados satisfatórios, devido a problemas de instalação e dificuldade na aprendizagem. Com o prazo limite de conclusão da resolução em mente, decidiu-se que se sucesso não for obtido em tempo razoável, o aprendizado e uso de novas tecnologias pode ser abandonado, para dar foco às tecnologias já conhecidas e demonstrar domínio na área desejada, de desenvolvimento front end.
 
 ## Parâmetros de entrada e de saída
 
