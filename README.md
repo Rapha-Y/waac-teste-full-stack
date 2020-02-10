@@ -10,7 +10,7 @@ Estimativa de horas:
 Preparo - 4 horas (tempo gasto não cronometrado)  
 Desenvolvimento da árvore - 2 horas (tempo gasto: 2:40 horas)  
 Desenvolvimento do banco de dados + Integração - 15 horas 
-Nova estimativa para desenvolvimento do BD + Integração - 18 horas (tempo gasto até o momento: 18:00 horas)
+Nova estimativa para desenvolvimento do BD + Integração - 18 horas (tempo gasto até o momento: 21:00 horas)
 
 ## O Desafio
 
@@ -86,6 +86,10 @@ Figura 2 - Novo diagrama entidade-relacionamento.
 Para que a integração ocorra, estudou-se que ela só é possível com o uso de tecnologias como PHP, Ajax e Node, as quais devem ser avaliadas e estudadas, a fim de se concluir a etapa atual.
 
 A integração do banco de dados e das variáveis através de PHP e Ajax não retornou resultados satisfatórios, devido a problemas de instalação e dificuldade na aprendizagem. Com o prazo limite de conclusão da resolução em mente, decidiu-se que se sucesso não for obtido em tempo razoável, o aprendizado e uso de novas tecnologias pode ser abandonado, para dar foco às tecnologias já conhecidas e demonstrar domínio na área desejada, de desenvolvimento front end.
+
+Resgatar e inserir dados no banco de dados foi possível com PHP, porém fazer uso das variáveis de JavaScript no código em PHP, através de Ajax, provou ser complicado. Dessa forma, a decisão tomada foi manter apenas a tabela dos dados do triângulo no banco de dados, e fazer a validação da entrada no próprio PHP, descartando a validação em JavaScript. Revisitando a ideia de um banco de dados mais robusto somente se sobrar tempo.
+
+Essa decisão significa que os dados dos vértices da árvore não poderão mais ser simplesmente consultados ao se selecionar um triângulo, mas a exibição destes ainda pode ser possível, quando se gera a árvore novamente, a partir dos dados do triângulo selecionado.
 
 ## Parâmetros de entrada e de saída
 
