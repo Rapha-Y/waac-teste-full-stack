@@ -9,12 +9,6 @@
         echo 'console.log('. json_encode( $data ) .')';
         echo '</script>';
     }
-
-    $name = '';
-    $numbers = '';
-
-    console_log($name);
-    console_log($numbers);
 ?>
 
 <!DOCTYPE html>
@@ -24,11 +18,94 @@
         <title>
             Test
         </title>
+        <script src='./javascript/script.js'></script>
     </head>
     <body>
         <div class='page-container'>
             <div class='image-divs-container'>
-            
+                <div class='triangle-display'>
+                    <table>
+                        <!--
+                            there's probably an automatic way to fill this table
+                            to be improved if enough time is left
+                        -->
+                        <tr>
+                            <td><div id='display-0'></div></td>
+                        </tr>
+                        <tr>
+                            <td><div id='display-1'></div></td>
+                            <td><div id='display-2'></div></td>
+                        </tr>
+                        <tr>
+                            <td><div id='display-3'></div></td>
+                            <td><div id='display-4'></div></td>
+                            <td><div id='display-5'></div></td>
+                        </tr>
+                        <tr>
+                            <td><div id='display-6'></div></td>
+                            <td><div id='display-7'></div></td>
+                            <td><div id='display-8'></div></td>
+                            <td><div id='display-9'></div></td>
+                        </tr>
+                        <tr>
+                            <td><div id='display-10'></div></td>
+                            <td><div id='display-11'></div></td>
+                            <td><div id='display-12'></div></td>
+                            <td><div id='display-13'></div></td>
+                            <td><div id='display-14'></div></td>
+                        </tr>
+                        <tr>
+                            <td><div id='display-15'></div></td>
+                            <td><div id='display-16'></div></td>
+                            <td><div id='display-17'></div></td>
+                            <td><div id='display-18'></div></td>
+                            <td><div id='display-19'></div></td>
+                            <td><div id='display-20'></div></td>
+                        </tr>
+                        <tr>
+                            <td><div id='display-21'></div></td>
+                            <td><div id='display-22'></div></td>
+                            <td><div id='display-23'></div></td>
+                            <td><div id='display-24'></div></td>
+                            <td><div id='display-25'></div></td>
+                            <td><div id='display-26'></div></td>
+                            <td><div id='display-27'></div></td>
+                        </tr>
+                        <tr>
+                            <td><div id='display-28'></div></td>
+                            <td><div id='display-29'></div></td>
+                            <td><div id='display-30'></div></td>
+                            <td><div id='display-31'></div></td>
+                            <td><div id='display-32'></div></td>
+                            <td><div id='display-33'></div></td>
+                            <td><div id='display-34'></div></td>
+                            <td><div id='display-35'></div></td>
+                        </tr>
+                        <tr>
+                            <td><div id='display-36'></div></td>
+                            <td><div id='display-37'></div></td>
+                            <td><div id='display-38'></div></td>
+                            <td><div id='display-39'></div></td>
+                            <td><div id='display-40'></div></td>
+                            <td><div id='display-41'></div></td>
+                            <td><div id='display-42'></div></td>
+                            <td><div id='display-43'></div></td>
+                            <td><div id='display-44'></div></td>
+                        </tr>
+                        <tr>
+                            <td><div id='display-45'></div></td>
+                            <td><div id='display-46'></div></td>
+                            <td><div id='display-47'></div></td>
+                            <td><div id='display-48'></div></td>
+                            <td><div id='display-49'></div></td>
+                            <td><div id='display-50'></div></td>
+                            <td><div id='display-51'></div></td>
+                            <td><div id='display-52'></div></td>
+                            <td><div id='display-53'></div></td>
+                            <td><div id='display-54'></div></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <div class='text-divs-container'>
                 <div class='input-fields'>
@@ -104,7 +181,7 @@
                     </form>
                 </div>
                 <div class='selection-field'>
-                    <select multiple='multiple' size='10'>
+                    <select id='triangle-attributes' onchange='showTemps();' multiple='multiple' size='10'>
                         <?php
                             $conn = new mysqli($servername, $username, $password, $databasename);
                         
@@ -115,12 +192,15 @@
                             $sql = 'SELECT * FROM Triangle';
                             $result = $conn->query($sql);
                             while($row = $result->fetch_assoc()) {
-                                echo '<option>' . $row['name'] . '</option>';
+                                echo '<option value=' . $row['id'] . '|' . $row['numbers'] . '>' . $row['name'] . '</option>';
                             }
 
                             $conn->close();
                         ?>
                     </select>
+                    <!--delete two divs below after push, made for testing-->
+                    <div id='temp-display-1'></div>
+                    <div id='temp-display-2'></div>
                 </div>
             </div>
         </div>

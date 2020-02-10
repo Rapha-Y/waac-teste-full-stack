@@ -10,7 +10,7 @@ Estimativa de horas:
 Preparo - 4 horas (tempo gasto não cronometrado)  
 Desenvolvimento da árvore - 2 horas (tempo gasto: 2:40 horas)  
 Desenvolvimento do banco de dados + Integração - 15 horas 
-Nova estimativa para desenvolvimento do BD + Integração - 18 horas (tempo gasto até o momento: 21:00 horas)
+Nova estimativa para desenvolvimento do BD + Integração - 18 horas (tempo gasto: 22:40 horas)
 
 ## O Desafio
 
