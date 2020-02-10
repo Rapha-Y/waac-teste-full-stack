@@ -1,5 +1,5 @@
 class Tree {
-    constructor(input) { //still needs input validation
+    constructor(input) { 
         var newNode = new Node(input, 0, 0); //constructs tree by recursion
         this.root = newNode;
         this.maxSum = newNode.getMaxSum();
@@ -80,10 +80,35 @@ class Node {
     }
 }
 
-var newTreeA = new Tree([[2], [4, 5], [8, 5, 1]]);
-var newTreeB = new Tree([[1], [1, 1], [1, 1, 1]]);
-var newTreeC = new Tree([[6], [3, 5], [9, 7, 1], [4, 6, 8, 4]]);
+function maxTriangleArraySize(baseSize) {
+    var maxSize=0;
+    for(var i=1;i<=baseSize;i++) {
+        maxSize += i;
+    }
+    return maxSize;
+}
 
-newTreeA.getResolution();
-newTreeB.getResolution();
-newTreeC.getResolution();
+function updateTriangleDisplay(numbers) {
+    var num_array = numbers.split(',');
+    
+    var i;
+    var idName;
+    for(i=0;i<num_array.length;i++) {
+        idName = 'display-' + i.toString();
+        document.getElementById(idName).innerHTML = num_array[i];
+    }
+    while(i<maxTriangleArraySize(10)){
+        idName = 'display-' + i.toString();
+        document.getElementById(idName).innerHTML = '';
+        i++;
+    }
+}
+
+//delete after push - made just for testing
+function showTemps() {
+    var aux = document.getElementById('triangle-attributes').value;
+    console.log(aux);
+    var auxi = aux.split('|');
+    document.getElementById('temp-display-1').innerHTML = auxi[0];
+    document.getElementById('temp-display-2').innerHTML = auxi[1];
+}
