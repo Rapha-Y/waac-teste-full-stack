@@ -4,34 +4,11 @@
     $password = 'password';
     $databasename = 'triangle_db';
 
-    $conn = new mysqli($servername, $username, $password, $databasename);
-
-    if($conn->connect_error) {
-        die('Connection failed: ' . $conn->connect_error);
+    function console_log($data){
+        echo '<script>';
+        echo 'console.log('. json_encode( $data ) .')';
+        echo '</script>';
     }
-
-    /*
-    delete after push - for progress tracking only
-
-    $sql = 'INSERT INTO Triangle(triangle_name) VALUES("Test Triangle 2")';
-    if($conn->query($sql) === TRUE) {
-        echo 'Insertion done, check it';
-    } else {
-        echo 'Error: ' . $sql . '<br>' . $conn->error;
-    }
-    */
-
-    $sql = 'SELECT * FROM Triangle';
-    $result = $conn->query($sql);
-    if($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            echo 'id: ' . $row['triangle_id']. ', name: ' . $row['triangle_name'] . ', root: ' . $row['root_id']. '<br>';
-        }
-    } else {
-        echo 'nothing in there';
-    }
-
-    $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -44,11 +21,10 @@
         <script type='text/javascript' src='./components/input-handler.js'></script>
     </head>
     <body>
-        <div class='creation-container'>
-            <div class='input-display'>
-                <div id='name-display'></div>
-                <div id='values-display'></div>
-            </div>
+        <div class='image-divs-container'>
+        
+        </div>
+        <div class='text-divs-container'>
             <div class='input-fields'>
                 Nome do Triângulo: 
                 <input 
@@ -58,6 +34,7 @@
                     type='text'
                     value=''
                 ><br>
+                <div id='name-warning'></div>
                 Valores do Triângulo: 
                 <input 
                     id='triangle-values'  
@@ -65,9 +42,35 @@
                     type='text'
                     value=''
                 ><br>
+                <div id='values-warning'></div>
                 <button name='confirm-button' onclick='getInputValues();' type='button'>
-                    Adicionar ao banco de dados
+                    Verificar
                 </button>
+            </div>
+            <div class='selection-field'>
+                <select multiple='multiple' size='10'>
+                    <?php
+                        $conn = new mysqli($servername, $username, $password, $databasename);
+                    
+                        if($conn->connect_error) {
+                            die('Connection failed: ' . $conn->connect_error);
+                        }
+
+                        $sql = 'SELECT * FROM Triangle';
+                        $result = $conn->query($sql);
+                        while($row = $result->fetch_assoc()) {
+                            echo '<option>' . $row['triangle_name'] . '</option>';
+                        }
+
+                        $conn->close();
+                    ?>
+                </select>
+            </div>
+        </div>
+        <div class='to-be-deleted-container'>
+            <div class='input-display'>
+                <div id='name-display'></div>
+                <div id='values-display'></div>
             </div>
         </div>
     </body>
