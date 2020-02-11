@@ -11,7 +11,7 @@ Preparo - 4 horas (tempo gasto não cronometrado)
 Desenvolvimento da árvore - 2 horas (tempo gasto: 2:40 horas)  
 Desenvolvimento do banco de dados + Integração - 15 horas 
 Nova estimativa para desenvolvimento do BD + Integração - 18 horas (tempo gasto: 22:40 horas)
-Finalização das funcionalidades - 5 horas (tempo gasto atm 4:30 horas)
+Finalização das funcionalidades - 5 horas (tempo gasto atm 8:00 horas)
 
 ## O Desafio
 
@@ -93,6 +93,10 @@ Resgatar e inserir dados no banco de dados foi possível com PHP, porém fazer u
 Essa decisão significa que os dados dos vértices da árvore não poderão mais ser simplesmente consultados ao se selecionar um triângulo, mas a exibição destes ainda pode ser possível, quando se gera a árvore novamente, a partir dos dados do triângulo selecionado.
 
 Uma vez finalizada a integração, é possível finalizar o desenvolvimento. Atualizar o código para resolver o problema e vinculá-lo aos componentes de HTML deve ser a próxima etapa, com a estilização por último. Porém, uma leve estilização das divisórias pretende ser feita para facilitar a visualização durante o desenvolvimento.
+
+Ao se finalizar a exibição da árvore gerada a partir do triângulo selecionado, se percebeu que talvez uma duplicata do triângulo, mas com as somas máximas obtidas, poderia ser mais interessante, uma vez que a árvore é confusa de se entender sem ler a explicação da lógica de resolução.
+
+O ideal seria fazer uma animação na própria árvore original, demonstrando como o código a percorre, mas essa tarefa pode ser complicada demais. Como ainda é necessário finalizar a amostragem de informações e ajustar a estilização para que o projeto se torne mais apresentável, tal animação provavelmente não será criada.
 
 ## Parâmetros de entrada e de saída
 

@@ -24,90 +24,77 @@
     <body>
         <div class='page-container'>
             <div class='image-divs-container'>
+                <!-- PHP can probably write both displays better, rewrite if possible -->
                 <div class='triangle-display'>
-                    <table>
-                        <!--
-                            there's probably an automatic way to fill this table with divs.
-                            to be revisited if enough time is left
-                        -->
-                        <tr>
-                            <td><div id='display-0'></div></td>
-                        </tr>
-                        <tr>
-                            <td><div id='display-1'></div></td>
-                            <td><div id='display-2'></div></td>
-                        </tr>
-                        <tr>
-                            <td><div id='display-3'></div></td>
-                            <td><div id='display-4'></div></td>
-                            <td><div id='display-5'></div></td>
-                        </tr>
-                        <tr>
-                            <td><div id='display-6'></div></td>
-                            <td><div id='display-7'></div></td>
-                            <td><div id='display-8'></div></td>
-                            <td><div id='display-9'></div></td>
-                        </tr>
-                        <tr>
-                            <td><div id='display-10'></div></td>
-                            <td><div id='display-11'></div></td>
-                            <td><div id='display-12'></div></td>
-                            <td><div id='display-13'></div></td>
-                            <td><div id='display-14'></div></td>
-                        </tr>
-                        <tr>
-                            <td><div id='display-15'></div></td>
-                            <td><div id='display-16'></div></td>
-                            <td><div id='display-17'></div></td>
-                            <td><div id='display-18'></div></td>
-                            <td><div id='display-19'></div></td>
-                            <td><div id='display-20'></div></td>
-                        </tr>
-                        <tr>
-                            <td><div id='display-21'></div></td>
-                            <td><div id='display-22'></div></td>
-                            <td><div id='display-23'></div></td>
-                            <td><div id='display-24'></div></td>
-                            <td><div id='display-25'></div></td>
-                            <td><div id='display-26'></div></td>
-                            <td><div id='display-27'></div></td>
-                        </tr>
-                        <tr>
-                            <td><div id='display-28'></div></td>
-                            <td><div id='display-29'></div></td>
-                            <td><div id='display-30'></div></td>
-                            <td><div id='display-31'></div></td>
-                            <td><div id='display-32'></div></td>
-                            <td><div id='display-33'></div></td>
-                            <td><div id='display-34'></div></td>
-                            <td><div id='display-35'></div></td>
-                        </tr>
-                        <tr>
-                            <td><div id='display-36'></div></td>
-                            <td><div id='display-37'></div></td>
-                            <td><div id='display-38'></div></td>
-                            <td><div id='display-39'></div></td>
-                            <td><div id='display-40'></div></td>
-                            <td><div id='display-41'></div></td>
-                            <td><div id='display-42'></div></td>
-                            <td><div id='display-43'></div></td>
-                            <td><div id='display-44'></div></td>
-                        </tr>
-                        <tr>
-                            <td><div id='display-45'></div></td>
-                            <td><div id='display-46'></div></td>
-                            <td><div id='display-47'></div></td>
-                            <td><div id='display-48'></div></td>
-                            <td><div id='display-49'></div></td>
-                            <td><div id='display-50'></div></td>
-                            <td><div id='display-51'></div></td>
-                            <td><div id='display-52'></div></td>
-                            <td><div id='display-53'></div></td>
-                            <td><div id='display-54'></div></td>
-                        </tr>
-                    </table>
+                    <div class='triangle-display-row'>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-0'></div></div>
+                    </div>
+                    <div class='triangle-display-row'>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-1'></div></div>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-2'></div></div>
+                    </div>
+                    <div class='triangle-display-row'>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-3'></div></div>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-4'></div></div>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-5'></div></div>
+                    </div>
+                    <div class='triangle-display-row'>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-6'></div></div>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-7'></div></div>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-8'></div></div>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-9'></div></div>
+                    </div>
+                    <div class='triangle-display-row'>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-10'></div></div>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-11'></div></div>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-12'></div></div>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-13'></div></div>
+                        <div class='triangle-display-item'><div class='triangle-text' id='display-14'></div></div>
+                    </div>
                 </div>
-                <div class='tree-display'></div>
+                <div class='tree-display'>
+                    <div class='tree-display-row'>
+                        <div class='tree-display-item'><div class='tree-text' id='node-0'></div></div>
+                    </div>
+                    <div class='tree-display-row'>
+                        <div class='tree-display-item'><div class='tree-text' id='node-1'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-2'></div></div>
+                    </div>
+                    <div class='tree-display-row'>
+                        <div class='tree-display-item'><div class='tree-text' id='node-3'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-4'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-5'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-6'></div></div>
+                    </div>
+                    <div class='tree-display-row'>
+                        <div class='tree-display-item'><div class='tree-text' id='node-7'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-8'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-9'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-10'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-11'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-12'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-13'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-14'></div></div>
+                    </div>
+                    <div class='tree-display-row'>
+                        <div class='tree-display-item'><div class='tree-text' id='node-15'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-16'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-17'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-18'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-19'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-20'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-21'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-22'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-23'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-24'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-25'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-26'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-27'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-28'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-29'></div></div>
+                        <div class='tree-display-item'><div class='tree-text' id='node-30'></div></div>
+                    </div>
+                </div>
             </div>
             <div class='text-divs-container'>
                 <div class='input-fields'>

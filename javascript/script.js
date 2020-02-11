@@ -1,5 +1,33 @@
 var problemTree;
 
+function maxTreeSize(baseSize) {
+    var maxSize=Math.pow(2,baseSize);
+    return maxSize;
+}
+
+function clearTreeDisplay() {
+    for(var i=0;i<maxTreeSize(5)-1;i++) {
+        var nodeId = 'node-' + i;
+        document.getElementById(nodeId).innerHTML = '';
+    }
+}
+
+function updateNodeDisplay(node) {
+    var nodeId = 'node-' + node.getId();
+    document.getElementById(nodeId).innerHTML = node.getMaxSum();
+    if(node.getLeft() != null) {
+        updateNodeDisplay(node.getLeft());
+    }
+    if(node.getRight() != null) {
+        updateNodeDisplay(node.getRight());
+    }
+}
+
+function updateTreeDisplay(tree) {
+    clearTreeDisplay();
+    updateNodeDisplay(tree.getRoot());
+}
+
 function createNewTree() {
     var allValues = document.getElementById('triangle-attributes').value;
     if(allValues == '') {
@@ -14,30 +42,24 @@ function createNewTree() {
             secondSplit.push(splitString[i].split(',').map(Number));
         }
         problemTree = new Tree(secondSplit);
-        problemTree.getResolution();
+        updateTreeDisplay(problemTree);
     }
 }
 
 class Tree {
-    constructor(input) { 
-        var newNode = new Node(input, 0, 0); //constructs tree by recursion
+    constructor(input) {
+        var newNode = new Node(input, 0, 0, 0, 0); //constructs tree by recursion
         this.root = newNode;
-        this.maxSum = newNode.getMaxSum();
-        this.maxPath = newNode.getMaxPath();
     }
-    getResolution() {
-        //early test - to be deleted
-        console.log("The maximum sum is " + this.maxSum + "\n");
-        console.log("The maximum paths are \n");
-        var i;
-        for(i=0;i<this.maxPath.length;i++) {
-            console.log("Path #" + (i+1) + ": " + this.maxPath[i] + "\n");
-        }
+    getRoot() {
+        return this.root;
     }
 }
 
 class Node {
-    constructor(list, level, position) {
+    constructor(list, level, position, passedId, treePosition) {
+        var timerStart = performance.now();
+        this.id = passedId;
         this.value = list[level][position];
 
         var leftChild; 
@@ -45,8 +67,8 @@ class Node {
         if(level < list.length-1) {
             //children will always be one level below,
             //the left one in the same position in the next array, the right one in the next position
-            leftChild = new Node(list, level+1, position);
-            rightChild = new Node(list, level+1, position+1);
+            leftChild = new Node(list, level+1, position, passedId+Math.pow(2,level)+treePosition, 2*treePosition);
+            rightChild = new Node(list, level+1, position+1, passedId+Math.pow(2,level)+treePosition+1, 2*treePosition+1);
         } else {
             //leaves have no children
             leftChild = null;
@@ -56,47 +78,46 @@ class Node {
         this.right = rightChild;
         
         var sum;
-        var path;
         if(level == list.length-1) { 
             sum = this.value;
-            path = [[]];
+            this.method = 'none';
         } else { 
             var i;
             if(this.left.getMaxSum() > this.right.getMaxSum()) {
                 sum = this.left.getMaxSum() + this.value;
-                path = this.left.getMaxPath();
-                //direction to which the max sum is must be added onto all possible paths
-                for(i=0;i<path.length;i++) {
-                    path[i].unshift('L');
-                }
+                this.method = 'left';
             } else if(this.left.getMaxSum() < this.right.getMaxSum()) {
                 sum = this.right.getMaxSum() + this.value;
-                path = this.right.getMaxPath();
-                for(i=0;i<path.length;i++) {
-                    path[i].unshift('R');
-                }
+                this.method = 'right';
             } else {
                 sum = this.left.getMaxSum() + this.value; //could be right as well
-                //since either path can be taken, we need to update both sides' directions accordingly
-                var leftPath = this.left.getMaxPath();
-                for(i=0;i<leftPath.length;i++) {
-                    leftPath[i].unshift('L');
-                }
-                var rightPath = this.right.getMaxPath();
-                for(i=0;i<rightPath.length;i++) {
-                    rightPath[i].unshift('R');
-                }
-                path = (leftPath).concat(rightPath);
+                this.method = 'either';
             }
         }
         this.maxSum = sum;
-        this.maxPath = path;
+        var timerEnd = performance.now();
+        this.time = timerEnd-timerStart;
+    }
+    getId () {
+        return this.id;
+    }
+    getValue() {
+        return this.value;
     }
     getMaxSum() {
         return this.maxSum;
     }
-    getMaxPath() {
-        return this.maxPath;
+    getTime() {
+        return this.time;
+    }
+    getMethod() {
+        return this.method;
+    }
+    getLeft() {
+        return this.left;
+    }
+    getRight() {
+        return this.right;
     }
 }
 
@@ -119,7 +140,7 @@ function updateTriangleDisplay() {
         idName = 'display-' + i.toString();
         document.getElementById(idName).innerHTML = splitArray[i];
     }
-    while(i<maxTriangleArraySize(10)){
+    while(i<maxTriangleArraySize(5)){
         idName = 'display-' + i.toString();
         document.getElementById(idName).innerHTML = '';
         i++;
