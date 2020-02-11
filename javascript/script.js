@@ -1,37 +1,77 @@
-var problemTree;
+var trueSolution = [];
 
-function maxTreeSize(baseSize) {
-    var maxSize=Math.pow(2,baseSize);
-    return maxSize;
-}
-
-function clearTreeDisplay() {
-    for(var i=0;i<maxTreeSize(5)-1;i++) {
-        var nodeId = 'node-' + i;
-        document.getElementById(nodeId).innerHTML = '';
+class SolutionItem {
+    constructor(value, sum, method, timerStart) {
+        this.value = value;
+        this.sum = sum;
+        this.method = method;
+        var timerEnd = performance.now();
+        this.time = timerEnd-timerStart;
     }
 }
 
-function updateNodeDisplay(node) {
-    var nodeId = 'node-' + node.getId();
-    document.getElementById(nodeId).innerHTML = node.getMaxSum();
-    if(node.getLeft() != null) {
-        updateNodeDisplay(node.getLeft());
-    }
-    if(node.getRight() != null) {
-        updateNodeDisplay(node.getRight());
+function clearAllInfo() {
+    trueSolution = [];
+    for(i=0;i<maxTriangleArraySize(5);i++) {
+        var id = 'sum-display-' + i;
+        document.getElementById(id).innerHTML = '';
     }
 }
 
-function updateTreeDisplay(tree) {
-    clearTreeDisplay();
-    updateNodeDisplay(tree.getRoot());
+function updateSecTriangleDisplay(solution) {
+    var i;
+    for(i=0;i<solution.length;i++) {
+        var id = 'sum-display-' + i;
+        document.getElementById(id).innerHTML = solution[i].sum + '<br>(' + (solution[i].sum-solution[i].value) + '+' + solution[i].value + ')';
+    }
+    while(i<maxTriangleArraySize(5)) {
+        solution.push(null);
+        var id = 'sum-display-' + i;
+        document.getElementById(id).innerHTML = '';
+        i++;
+    }
 }
 
-function createNewTree() {
+function solveProblem(problem) {
+    var timerStart = performance.now();
+    var solution = [];
+    for(var i=problem.length-1;i>=0;i--) {
+        var solutionInner = [];
+        for(var j=0;j<problem[i].length;j++) {
+            var sum;
+            var method;
+            if(i == problem.length-1) {
+                sum = 0;
+                method = 'none';
+            } else if (solution[0][j].sum > solution[0][j+1].sum) {
+                sum = solution[0][j].sum;
+                method = 'left';
+            } else if (solution[0][j].sum < solution[0][j+1].sum) {
+                sum = solution[0][j+1].sum;
+                method = 'right';
+            } else {
+                sum = solution[0][j].sum;
+                method = 'either';
+            }
+            var newSolutionItem = new SolutionItem(problem[i][j], problem[i][j]+sum, method, timerStart)
+            solutionInner.push(newSolutionItem);
+        }
+        solution.unshift(solutionInner);
+    }
+    var simpleSol = [];
+    for(var i=0;i<solution.length;i++) {
+        for(var j=0;j<solution[i].length;j++) {
+            simpleSol.push(solution[i][j]);
+        }
+    }
+    updateSecTriangleDisplay(simpleSol);
+    trueSolution = simpleSol;
+}
+
+function getSolution() {
     var allValues = document.getElementById('triangle-attributes').value;
     if(allValues == '') {
-        document.getElementById('selection-warning').innerHTML = 'Selecione um triângulo.'
+        document.getElementById('info-text').innerHTML = 'Selecione um triângulo primeiro.'
     } else {
         var splitString = allValues.split('],[');
         splitString[0] = splitString[0].replace('[[', '');
@@ -41,84 +81,8 @@ function createNewTree() {
         for(var i=0;i<splitString.length;i++) {
             secondSplit.push(splitString[i].split(',').map(Number));
         }
-        problemTree = new Tree(secondSplit);
-        updateTreeDisplay(problemTree);
     }
-}
-
-class Tree {
-    constructor(input) {
-        var newNode = new Node(input, 0, 0, 0, 0); //constructs tree by recursion
-        this.root = newNode;
-    }
-    getRoot() {
-        return this.root;
-    }
-}
-
-class Node {
-    constructor(list, level, position, passedId, treePosition) {
-        var timerStart = performance.now();
-        this.id = passedId;
-        this.value = list[level][position];
-
-        var leftChild; 
-        var rightChild;
-        if(level < list.length-1) {
-            //children will always be one level below,
-            //the left one in the same position in the next array, the right one in the next position
-            leftChild = new Node(list, level+1, position, passedId+Math.pow(2,level)+treePosition, 2*treePosition);
-            rightChild = new Node(list, level+1, position+1, passedId+Math.pow(2,level)+treePosition+1, 2*treePosition+1);
-        } else {
-            //leaves have no children
-            leftChild = null;
-            rightChild = null;
-        }
-        this.left = leftChild;
-        this.right = rightChild;
-        
-        var sum;
-        if(level == list.length-1) { 
-            sum = this.value;
-            this.method = 'none';
-        } else { 
-            var i;
-            if(this.left.getMaxSum() > this.right.getMaxSum()) {
-                sum = this.left.getMaxSum() + this.value;
-                this.method = 'left';
-            } else if(this.left.getMaxSum() < this.right.getMaxSum()) {
-                sum = this.right.getMaxSum() + this.value;
-                this.method = 'right';
-            } else {
-                sum = this.left.getMaxSum() + this.value; //could be right as well
-                this.method = 'either';
-            }
-        }
-        this.maxSum = sum;
-        var timerEnd = performance.now();
-        this.time = timerEnd-timerStart;
-    }
-    getId () {
-        return this.id;
-    }
-    getValue() {
-        return this.value;
-    }
-    getMaxSum() {
-        return this.maxSum;
-    }
-    getTime() {
-        return this.time;
-    }
-    getMethod() {
-        return this.method;
-    }
-    getLeft() {
-        return this.left;
-    }
-    getRight() {
-        return this.right;
-    }
+    solveProblem(secondSplit);
 }
 
 function maxTriangleArraySize(baseSize) {
@@ -144,5 +108,28 @@ function updateTriangleDisplay() {
         idName = 'display-' + i.toString();
         document.getElementById(idName).innerHTML = '';
         i++;
+    }
+}
+
+function updateNodeStats(id) {
+    if(trueSolution.length == 0){
+        document.getElementById('info-text').innerHTML = 'Gere uma solução primeiro.';
+    } else if(trueSolution[id] == null) {
+        document.getElementById('info-text').innerHTML = 'Clique em um componente com valores.';
+    } else {
+        var nodeValue = trueSolution[id].value;
+        var nodeSum = trueSolution[id].sum;
+        var nodeMethod;
+        if(trueSolution[id].method == 'none') {
+            nodeMethod = 'Nenhum, o valor pertence à base do triângulo.';
+        } else if(trueSolution[id].method == 'left') {
+            nodeMethod = 'Esquerda, por onde pode se obter soma maior.';
+        } else if(trueSolution[id].method == 'right') {
+            nodeMethod = 'Direita, por onde pode se obter soma maior.';
+        } else if(trueSolution[id].method == 'either') {
+            nodeMethod = 'Esquerda, porém a direita leva a uma mesma soma.';
+        }
+        var nodeTime = trueSolution[id].time;
+        document.getElementById('info-text').innerHTML = 'Valor original: ' + nodeValue + '<br>Soma máxima: ' + nodeSum + '<br>Método escolhido: ' + nodeMethod + '<br>Tempo de execução: ' + nodeTime;
     }
 }

@@ -52,47 +52,31 @@
                         <div class='triangle-display-item'><div class='triangle-text' id='display-14'></div></div>
                     </div>
                 </div>
-                <div class='tree-display'>
-                    <div class='tree-display-row'>
-                        <div class='tree-display-item'><div class='tree-text' id='node-0'></div></div>
+                <div class='triangle-display'>
+                <div class='triangle-display-row'>
+                    <div class='triangle-display-item' onclick='updateNodeStats(0);'><div class='sec-triangle-text' id='sum-display-0'></div></div>
                     </div>
-                    <div class='tree-display-row'>
-                        <div class='tree-display-item'><div class='tree-text' id='node-1'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-2'></div></div>
+                    <div class='triangle-display-row'>
+                        <div class='triangle-display-item' onclick='updateNodeStats(1);'><div class='sec-triangle-text' id='sum-display-1'></div></div>
+                        <div class='triangle-display-item' onclick='updateNodeStats(2);'><div class='sec-triangle-text' id='sum-display-2'></div></div>
                     </div>
-                    <div class='tree-display-row'>
-                        <div class='tree-display-item'><div class='tree-text' id='node-3'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-4'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-5'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-6'></div></div>
+                    <div class='triangle-display-row'>
+                        <div class='triangle-display-item' onclick='updateNodeStats(3);'><div class='sec-triangle-text' id='sum-display-3'></div></div>
+                        <div class='triangle-display-item' onclick='updateNodeStats(4);'><div class='sec-triangle-text' id='sum-display-4'></div></div>
+                        <div class='triangle-display-item' onclick='updateNodeStats(5);'><div class='sec-triangle-text' id='sum-display-5'></div></div>
                     </div>
-                    <div class='tree-display-row'>
-                        <div class='tree-display-item'><div class='tree-text' id='node-7'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-8'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-9'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-10'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-11'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-12'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-13'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-14'></div></div>
+                    <div class='triangle-display-row'>
+                        <div class='triangle-display-item' onclick='updateNodeStats(6);'><div class='sec-triangle-text' id='sum-display-6'></div></div>
+                        <div class='triangle-display-item' onclick='updateNodeStats(7);'><div class='sec-triangle-text' id='sum-display-7'></div></div>
+                        <div class='triangle-display-item' onclick='updateNodeStats(8);'><div class='sec-triangle-text' id='sum-display-8'></div></div>
+                        <div class='triangle-display-item' onclick='updateNodeStats(9);'><div class='sec-triangle-text' id='sum-display-9'></div></div>
                     </div>
-                    <div class='tree-display-row'>
-                        <div class='tree-display-item'><div class='tree-text' id='node-15'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-16'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-17'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-18'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-19'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-20'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-21'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-22'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-23'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-24'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-25'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-26'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-27'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-28'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-29'></div></div>
-                        <div class='tree-display-item'><div class='tree-text' id='node-30'></div></div>
+                    <div class='triangle-display-row'>
+                        <div class='triangle-display-item' onclick='updateNodeStats(10);'><div class='sec-triangle-text' id='sum-display-10'></div></div>
+                        <div class='triangle-display-item' onclick='updateNodeStats(11);'><div class='sec-triangle-text' id='sum-display-11'></div></div>
+                        <div class='triangle-display-item' onclick='updateNodeStats(12);'><div class='sec-triangle-text' id='sum-display-12'></div></div>
+                        <div class='triangle-display-item' onclick='updateNodeStats(13);'><div class='sec-triangle-text' id='sum-display-13'></div></div>
+                        <div class='triangle-display-item' onclick='updateNodeStats(14);'><div class='sec-triangle-text' id='sum-display-14'></div></div>
                     </div>
                 </div>
             </div>
@@ -188,7 +172,7 @@
                     </form>
                 </div>
                 <div class='selection-field'>
-                    <select id='triangle-attributes' onchange='updateTriangleDisplay();' multiple='multiple' size='10'>
+                    <select id='triangle-attributes' onchange='updateTriangleDisplay(); clearAllInfo(); updateNodeStats(null);' multiple='multiple' size='10'>
                         <?php
                             $conn = new mysqli($servername, $username, $password, $databasename);
                         
@@ -205,10 +189,9 @@
                             $conn->close();
                         ?>
                     </select><br>
-                    <button onclick='createNewTree();'>Gerar Solução</button>
-                    <div id='selection-warning' class='selection-warning'></div>
+                    <button onclick='getSolution(); updateNodeStats(null);'>Gerar Solução</button>
                 </div>
-                <div class='info-field'></div>
+                <div class='info-field'><div class='info-text' id='info-text'></div></div>
             </div>
         </div>
     </body>

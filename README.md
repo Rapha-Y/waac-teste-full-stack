@@ -9,9 +9,9 @@ Estimativa de horas:
 
 Preparo - 4 horas (tempo gasto não cronometrado)  
 Desenvolvimento da árvore - 2 horas (tempo gasto: 2:40 horas)  
-Desenvolvimento do banco de dados + Integração - 15 horas 
-Nova estimativa para desenvolvimento do BD + Integração - 18 horas (tempo gasto: 22:40 horas)
-Finalização das funcionalidades - 5 horas (tempo gasto atm 8:00 horas)
+Desenvolvimento do Banco de dados + Integração - 18 horas (tempo gasto: 22:40 horas)
+Finalização das funcionalidades - 5 horas (tempo gasto: 10:00 horas)
+Melhora do design - 6 horas
 
 ## O Desafio
 
@@ -97,6 +97,10 @@ Uma vez finalizada a integração, é possível finalizar o desenvolvimento. Atu
 Ao se finalizar a exibição da árvore gerada a partir do triângulo selecionado, se percebeu que talvez uma duplicata do triângulo, mas com as somas máximas obtidas, poderia ser mais interessante, uma vez que a árvore é confusa de se entender sem ler a explicação da lógica de resolução.
 
 O ideal seria fazer uma animação na própria árvore original, demonstrando como o código a percorre, mas essa tarefa pode ser complicada demais. Como ainda é necessário finalizar a amostragem de informações e ajustar a estilização para que o projeto se torne mais apresentável, tal animação provavelmente não será criada.
+
+Buscando melhorar o display e com o novo conhecimento adquirido sobre algumas ferramentas de programação, notou-se que uma árvore sequer era necessária para se resolver o problema. Reescrevendo o código, a resolução passa a se encontrar na forma de um vetor, facilitando a manipulação de dados.
+
+Uma vez finalizadas as funcionalidades, resta apenas melhorar a apresentação. A última etapa pode ser bastante simples ou complexa, dependendo do quanto se pretende melhorar os visuais. Assim sendo, em prioridade decrescente, deseja-se: deixar o programa mais intuitivo, tornar o design responsivo e tornar o design visualmente atrativo.
 
 ## Parâmetros de entrada e de saída
 

@@ -48,37 +48,11 @@
     font-size: 20px;
 }
 
-.tree-display {
-    background-color: green;
-    height: 300px;
-    width: 300px;
-    padding: 10px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.tree-display-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+.sec-triangle-text {
+    padding-left: 0px;
+    padding-top: 6px;
+    font-size: 15px;
     text-align: center;
-    width: 100%;
-}
-
-.tree-display-item {
-    background-color: white;
-    border-width: 1px;
-    border-color: black;
-    border-style: solid;
-    flex: 1;
-}    
-
-.tree-text {
-    font-size: 20px;
 }
 
 .text-divs-container {
