@@ -3,6 +3,6 @@ Merely to help visualize the database
 CREATE TABLE Triangle(
     id int AUTO_INCREMENT,
     name varchar(50),
-    number varchar(50),
-    PRIMARY KEY (id)
+    numbers varchar(165),
+    PRIMARY KEY(id)
 );

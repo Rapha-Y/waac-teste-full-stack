@@ -13,11 +13,12 @@
 
 <!DOCTYPE html>
 
-<html lang='en'>
+<html lang='pt'>
     <head>
         <title>
             Test
         </title>
+        <link href='./styles/styles.css' rel='stylesheet' type='text/css'>
         <script src='./javascript/script.js'></script>
     </head>
     <body>
@@ -26,8 +27,8 @@
                 <div class='triangle-display'>
                     <table>
                         <!--
-                            there's probably an automatic way to fill this table
-                            to be improved if enough time is left
+                            there's probably an automatic way to fill this table with divs.
+                            to be revisited if enough time is left
                         -->
                         <tr>
                             <td><div id='display-0'></div></td>
@@ -106,6 +107,7 @@
                         </tr>
                     </table>
                 </div>
+                <div class='tree-display'></div>
             </div>
             <div class='text-divs-container'>
                 <div class='input-fields'>
@@ -129,7 +131,7 @@
                             ?>
                         </div>
                         Valores do Triângulo: 
-                        <input name='numbers' placeholder='1,2,3,4,5,6' type='text'><br>
+                        <input name='numbers' placeholder='[[1],[2,3],[4,5,6]]' type='text'><br>
                         <div class='input-warning'>
                             <?php
                                 $numbers_validation = true;
@@ -138,24 +140,42 @@
                                     $numbers_validation = false;
                                     echo 'Este campo é obrigatório.';
                                 } else {
-                                    $num_array = explode(',',$numbers);
-                                    foreach($num_array as $i => $num_value) {
-                                        if(strlen($num_value) == 0 || $num_value == '') {
-                                            $numbers_validation = false;
-                                            echo 'Todos os números devem ser preenchidos.';
-                                            break;
-                                        } else if(!preg_match('/[0-9]/', $num_value)) {
-                                            $numbers_validation = false;
-                                            echo 'Apenas números são permitidos.';
-                                            break;
-                                        } else if(preg_match('/[\s]/', $num_value)) {
-                                            $numbers_validation = false;
-                                            echo 'Espaços não são permitidos.';
-                                            break;
-                                        } else if(strlen($num_value) > 2) {
-                                            $numbers_validation = false;
-                                            echo 'Apenas números entre 0 e 99.';
-                                            break;
+                                    $num_array = explode('],[', $numbers);
+                                    $num_array[0] = trim($num_array[0], '[[');
+                                    $num_array[sizeof($num_array)-1] = trim($num_array[sizeof($num_array)-1], ']]');
+                                    for($i=0;$i<sizeof($num_array);$i++) {
+                                        $num_array[$i] = explode(',', $num_array[$i]);
+                                    }
+                                    if(sizeof($num_array) > 5) {
+                                        console_log(sizeof($num_array));
+                                        $numbers_validation = false;
+                                        echo 'A base do triângulo deve conter no máximo 5 números.';
+                                    } else {
+                                        for($i=0;$i<sizeof($num_array);$i++) {
+                                            if(sizeof($num_array[$i]) != $i+1) {
+                                                $numbers_validation = false;
+                                                echo 'O topo do triângulo deve começar com valor único, incrementando de um em um nas próxima seções.';
+                                                break;
+                                            }
+                                            for($j=0;$j<sizeof($num_array[$i]);$j++) {
+                                                if(strlen($num_array[$i][$j]) == 0 || $num_array[$i][$j] == '') {
+                                                    $numbers_validation = false;
+                                                    echo 'Todos os números devem ser preenchidos.';
+                                                    break 2;
+                                                } else if(!preg_match('/[0-9]/', $num_array[$i][$j])) {
+                                                    $numbers_validation = false;
+                                                    echo 'Apenas números são permitidos.';
+                                                    break 2;
+                                                } else if(preg_match('/[\s]/', $num_array[$i][$j])) {
+                                                    $numbers_validation = false;
+                                                    echo 'Espaços não são permitidos.';
+                                                    break 2;
+                                                } else if(strlen($num_array[$i][$j]) > 1) {
+                                                    $numbers_validation = false;
+                                                    echo 'Apenas números entre 0 e 9.';
+                                                    break 2;
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -181,7 +201,7 @@
                     </form>
                 </div>
                 <div class='selection-field'>
-                    <select id='triangle-attributes' onchange='showTemps();' multiple='multiple' size='10'>
+                    <select id='triangle-attributes' onchange='updateTriangleDisplay();' multiple='multiple' size='10'>
                         <?php
                             $conn = new mysqli($servername, $username, $password, $databasename);
                         
@@ -192,16 +212,16 @@
                             $sql = 'SELECT * FROM Triangle';
                             $result = $conn->query($sql);
                             while($row = $result->fetch_assoc()) {
-                                echo '<option value=' . $row['id'] . '|' . $row['numbers'] . '>' . $row['name'] . '</option>';
+                                echo '<option value=' . $row['numbers'] . '>' . $row['name'] . '</option>';
                             }
 
                             $conn->close();
                         ?>
-                    </select>
-                    <!--delete two divs below after push, made for testing-->
-                    <div id='temp-display-1'></div>
-                    <div id='temp-display-2'></div>
+                    </select><br>
+                    <button onclick='createNewTree();'>Gerar Solução</button>
+                    <div id='selection-warning' class='selection-warning'></div>
                 </div>
+                <div class='info-field'></div>
             </div>
         </div>
     </body>

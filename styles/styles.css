@@ -1,0 +1,54 @@
+.page-container {
+    display: flex;
+    flex-direction: row;
+
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.image-divs-container {
+    flex: 1;
+}
+
+.triangle-display {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.tree-display {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.text-divs-container {
+    flex: 1;
+}
+
+.input-fields {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+
+    padding: 5px;
+}
+
+.selection-field {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+
+    padding: 5px;
+}
+
+.info-field {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+
+    padding: 5px;
+}

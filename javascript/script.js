@@ -1,3 +1,23 @@
+var problemTree;
+
+function createNewTree() {
+    var allValues = document.getElementById('triangle-attributes').value;
+    if(allValues == '') {
+        document.getElementById('selection-warning').innerHTML = 'Selecione um triângulo.'
+    } else {
+        var splitString = allValues.split('],[');
+        splitString[0] = splitString[0].replace('[[', '');
+        splitString[splitString.length-1] = splitString[splitString.length-1].replace(']]', '');
+        
+        var secondSplit = [];
+        for(var i=0;i<splitString.length;i++) {
+            secondSplit.push(splitString[i].split(',').map(Number));
+        }
+        problemTree = new Tree(secondSplit);
+        problemTree.getResolution();
+    }
+}
+
 class Tree {
     constructor(input) { 
         var newNode = new Node(input, 0, 0); //constructs tree by recursion
@@ -88,27 +108,20 @@ function maxTriangleArraySize(baseSize) {
     return maxSize;
 }
 
-function updateTriangleDisplay(numbers) {
-    var num_array = numbers.split(',');
-    
+function updateTriangleDisplay() {
+    var numberArray = document.getElementById('triangle-attributes').value;
+    var simpleArray = numberArray.replace(/[\[\]']+/g,'');
+    var splitArray = simpleArray.split(',');
+
     var i;
     var idName;
-    for(i=0;i<num_array.length;i++) {
+    for(i=0;i<splitArray.length;i++) {
         idName = 'display-' + i.toString();
-        document.getElementById(idName).innerHTML = num_array[i];
+        document.getElementById(idName).innerHTML = splitArray[i];
     }
     while(i<maxTriangleArraySize(10)){
         idName = 'display-' + i.toString();
         document.getElementById(idName).innerHTML = '';
         i++;
     }
-}
-
-//delete after push - made just for testing
-function showTemps() {
-    var aux = document.getElementById('triangle-attributes').value;
-    console.log(aux);
-    var auxi = aux.split('|');
-    document.getElementById('temp-display-1').innerHTML = auxi[0];
-    document.getElementById('temp-display-2').innerHTML = auxi[1];
 }
