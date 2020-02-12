@@ -16,6 +16,8 @@ function clearAllInfo() {
         var id = 'sum-display-' + i;
         document.getElementById(id).innerHTML = '';
     }
+    document.getElementById('triangle-solution').innerHTML = '';
+    document.getElementById('info-text').innerHTML = '';
 }
 
 function updateSecTriangleDisplay(solution) {
@@ -64,6 +66,18 @@ function solveProblem(problem) {
             simpleSol.push(solution[i][j]);
         }
     }
+
+    var pos = 0;
+    var sumString = '(' + solution[0][0].value;
+    for(var i=0;i<solution.length-1;i++) {
+        if(solution[i+1][pos].sum < solution[i+1][pos+1].sum) {
+            pos++;
+        }
+        sumString = sumString + '+' + solution[i+1][pos].value;
+    }
+    sumString = sumString + ')';
+    document.getElementById('triangle-solution').innerHTML = '<hr>Máxima soma obtida: ' + solution[0][0].sum + ' ' + sumString;
+
     updateSecTriangleDisplay(simpleSol);
     trueSolution = simpleSol;
 }
@@ -71,7 +85,7 @@ function solveProblem(problem) {
 function getSolution() {
     var allValues = document.getElementById('triangle-attributes').value;
     if(allValues == '') {
-        document.getElementById('info-text').innerHTML = 'Selecione um triângulo primeiro.'
+        document.getElementById('info-text').innerHTML = '<hr>Selecione um triângulo primeiro.'
     } else {
         var splitString = allValues.split('],[');
         splitString[0] = splitString[0].replace('[[', '');
@@ -113,9 +127,9 @@ function updateTriangleDisplay() {
 
 function updateNodeStats(id) {
     if(trueSolution.length == 0){
-        document.getElementById('info-text').innerHTML = 'Gere uma solução primeiro.';
+        document.getElementById('info-text').innerHTML = '<hr>Gere uma solução primeiro.';
     } else if(trueSolution[id] == null) {
-        document.getElementById('info-text').innerHTML = 'Clique em um componente com valores.';
+        document.getElementById('info-text').innerHTML = '<hr>Clique em um componente com valores.';
     } else {
         var nodeValue = trueSolution[id].value;
         var nodeSum = trueSolution[id].sum;
@@ -130,6 +144,6 @@ function updateNodeStats(id) {
             nodeMethod = 'Esquerda, porém a direita leva a uma mesma soma.';
         }
         var nodeTime = trueSolution[id].time;
-        document.getElementById('info-text').innerHTML = 'Valor original: ' + nodeValue + '<br>Soma máxima: ' + nodeSum + '<br>Método escolhido: ' + nodeMethod + '<br>Tempo de execução: ' + nodeTime;
+        document.getElementById('info-text').innerHTML = '<hr>Valor original: ' + nodeValue + ', Soma máxima: ' + nodeSum + '<br>Método escolhido: ' + nodeMethod + '<br>Tempo de execução: ' + nodeTime + ' ms';
     }
 }
