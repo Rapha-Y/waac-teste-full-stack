@@ -9,8 +9,8 @@ Estimativa de horas:
 
 Preparo - 4 horas (tempo gasto não cronometrado)  
 Desenvolvimento da árvore - 2 horas (tempo gasto: 2:40 horas)  
-Desenvolvimento do Banco de dados + Integração - 18 horas (tempo gasto: 22:40 horas)
-Finalização das funcionalidades - 5 horas (tempo gasto: 10:00 horas)
+Desenvolvimento do Banco de dados + Integração - 18 horas (tempo gasto: 22:40 horas)  
+Finalização das funcionalidades - 5 horas (tempo gasto: 10:00 horas)  
 Melhora do design - 6 horas (tempo gasto não cronometrado)
 
 ## O Desafio
