@@ -1,6 +1,10 @@
 .page-container {
+    background-image: linear-gradient(to bottom, #2C3E50, #34495E);
     display: flex;
     flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
 
     height: 100%;
     width: 100%;
@@ -9,15 +13,35 @@
     top: 0;
 }
 
-.image-divs-container {
+.header {
+    background-color: rgba(211, 84, 0, 0.5);
+    color: black;
+
+    height: 50px;
+    width: 100%;
+
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.triangle-container {
+    background-color: white;
+
+    border-left: 1px black solid;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+
+    height: 432px;
 }
 
 .triangle-display {
-    background-color: black;
-    height: 300px;
-    width: 300px;
+    background-color: rgb(230, 126, 34, 0.5);
+
+    height: 362px;
+    width: 280px;
     padding: 10px;
 
     display: flex;
@@ -48,7 +72,52 @@
     font-size: 20px;
 }
 
+.sec-triangle-container {
+    background-color: white;
+
+    border-right: 1px black solid;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+
+    height: 432px;
+}
+
+.sec-triangle-container .header {
+    background-color: rgba(189, 195, 199, 0.5);
+}
+
+.sec-triangle-display {
+    background-color: rgba(236, 240, 241, 0.5);
+
+    height: 362px;
+    width: 280px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sec-triangle-display-item {
+    background-image: linear-gradient(to bottom, white, rgba(0,0,0,0.1));
+    
+    border-radius: 25px;
+    box-shadow: 0px 2px rgba(0,0,0,0.5);
+
+    width: 50px;
+    height: 50px;
+
+    margin: 0px 1px;
+}
+
+.sec-triangle-display-item:focus {
+    box-shadow: 0px 2px rgba(0,0,0,0.1);
+}
+
 .sec-triangle-text {
+    color: rgba(0, 0, 0, 0.6);
+
     padding-left: 0px;
     padding-top: 6px;
     font-size: 15px;
@@ -60,25 +129,100 @@
 }
 
 .input-fields {
-    border-width: 1px;
-    border-color: black;
-    border-style: solid;
+    background-color: rgba(46, 204, 113, 0.5);
+    
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
 
+    height: 261px;
+    width: 290px;
+}
+
+.input-fields .header {
+    background-color: rgba(39, 174, 96, 0.5);
+}
+
+.input-fields form {
     padding: 5px;
+}
+
+.form-field {
+    padding-bottom: 5px;
 }
 
 .selection-field {
-    border-width: 1px;
-    border-color: black;
-    border-style: solid;
+    background-color: white;
 
-    padding: 5px;
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+
+    height: 432px;
+}
+
+.selector-top {
+    display: flex;
+    flex-direction: row;
+}
+
+.selector {
+    width: 200px;
+}
+
+.selector .header {
+    border-left: solid black 1px;
+}
+
+.selector select {
+    background-color: rgba(236, 240, 241, 0.5);
+    width: 100%;
+    outline: none;
+}
+
+.selector button {
+    position: relative;
+    top: -1px;
+    width: 100%;
+}
+
+.selector select option {
+    border-bottom: 1px solid black;
+    padding: 2px;
+}
+
+.selector-bot {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+
+    position: relative;
+    top: -1px;
+}
+
+.bottom-header {
+    background-color: rgba(189, 195, 199, 0.5);
+    color: black;
+
+    border-left: solid black 1px;
+
+    height: 170px;
+    width: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .info-field {
-    border-width: 1px;
-    border-color: black;
-    border-style: solid;
+    background-color: rgba(236, 240, 241, 0.5);
+
+    border-right: solid black 1px;
+
+    height: 160px;
+    width: 370px;
 
     padding: 5px;
 }

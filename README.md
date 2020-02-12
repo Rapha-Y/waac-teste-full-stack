@@ -11,7 +11,7 @@ Preparo - 4 horas (tempo gasto não cronometrado)
 Desenvolvimento da árvore - 2 horas (tempo gasto: 2:40 horas)  
 Desenvolvimento do Banco de dados + Integração - 18 horas (tempo gasto: 22:40 horas)
 Finalização das funcionalidades - 5 horas (tempo gasto: 10:00 horas)
-Melhora do design - 6 horas
+Melhora do design - 6 horas (tempo gasto não cronometrado)
 
 ## O Desafio
 
@@ -36,7 +36,7 @@ Escolha a linguagem de programação desejada e deixo nos saber a sua estratégi
 
 ------
 
-Linguagem: JavaScript para a resolução do problema, especificada durante a entrevista.
+Linguagens: JavaScript para a resolução do problema, especificada durante a entrevista. HTML e CSS foram escolhidas para o front end, com SQL sendo utilizada para o desenvolvimento do banco de dados. Consequentemente, da necessidade de se realizar a integração do front com o back end, escolheu-se e aprendeu-se um pouco de PHP para realizar tal tarefa. 
 
 Entendendo o problema:
 
@@ -101,6 +101,20 @@ O ideal seria fazer uma animação na própria árvore original, demonstrando co
 Buscando melhorar o display e com o novo conhecimento adquirido sobre algumas ferramentas de programação, notou-se que uma árvore sequer era necessária para se resolver o problema. Reescrevendo o código, a resolução passa a se encontrar na forma de um vetor, facilitando a manipulação de dados.
 
 Uma vez finalizadas as funcionalidades, resta apenas melhorar a apresentação. A última etapa pode ser bastante simples ou complexa, dependendo do quanto se pretende melhorar os visuais. Assim sendo, em prioridade decrescente, deseja-se: deixar o programa mais intuitivo, tornar o design responsivo e tornar o design visualmente atrativo.
+
+Conclusão:
+
+Com o objetivo satisfatoriamente alcançado, há alguns pontos que foram observados. 
+
+- O código poderia ter mais anotações, a fim de facilitar a leitura;
+- Algumas funções podem ser fragmentadas, também para facilitar a leitura;
+- O problema poderia ter sido resolvido muito mais rapidamente se mais tempo fosse dedicado ao planejamento;
+- Alguns pushes poderiam ser quebrados em mais partes;
+- Embora o resultado tenha sido positivo, o uso de novas tecnologias deve ser deixado para depois da resolução dos problemas conhecidos. O banco de dados poderia ter sido substituído por um array de objetos até o momento em que só ele precisasse ser implantado;
+- Design responsivo requer mais tempo do que o estimado, para desenvolvê-lo simultaneamente a um design estático, é preciso já ter em mente como deve ser o responsivo;
+- As estimativas de tempo foram bastante imprecisas, deve se fazer estimativas mais pessimistas.
+
+Infelizmente não foram observados locais aonde a aplicação de padrões de projeto seria possível e não houve conhecimento o suficiente do processo de testes automatizados para aplicá-los. Ademas, a experiência agregou mais do que o esperado, com o aprendizado de uma nova linguagem e melhor conhecimento quanto a uso e integração de banco de dados. 
 
 ## Parâmetros de entrada e de saída
 
